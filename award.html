@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velocore Appreciation Award</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: #111;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 255, 0, 0.2);
+      padding: 2rem;
+      max-width: 500px;
+      text-align: center;
+      color: #A6CE39;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    .reward {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    .company {
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="velocorebikes.png" alt="Velocore Logo" class="logo" />
+    <h1>Congratulations <span id="employeeName">[Employee]</span>! ✨</h1>
+    <p>You have been recognised with an Appreciate Award for your outstanding sales achievement this quarter.</p>
+    <p class="reward">£ 1,000 Monetary Reward</p>
+    <p>Keep up the great work!</p>
+    <p class="company">Presented by Velocore</p>
+  </div>
+
+  <script>
+    // Get 'name' from query string
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name') || 'Team Member';
+    document.getElementById('employeeName').textContent = name;
+  </script>
+</body>
+</html>
