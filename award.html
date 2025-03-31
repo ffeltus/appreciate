@@ -44,6 +44,11 @@
       margin-top: 2rem;
       color: #666;
     }
+    .emp-id {
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      color: #888;
+    }
   </style>
 </head>
 <body>
@@ -52,15 +57,18 @@
     <h1>Congratulations <span id="employeeName">[Employee]</span>! ✨</h1>
     <p>You have been recognised with an Appreciate Award for your outstanding sales achievement this quarter.</p>
     <p class="reward">£ 1,000 Monetary Reward</p>
+    <p class="emp-id">Employee ID: <span id="employeeId">[ID]</span></p>
     <p>Keep up the great work!</p>
     <p class="company">Presented by Velocore</p>
   </div>
 
   <script>
-    // Get 'name' from query string
+    // Get 'name' and 'id' from query string
     const params = new URLSearchParams(window.location.search);
     const name = params.get('name') || 'Team Member';
+    const empId = params.get('id') || '000000';
     document.getElementById('employeeName').textContent = name;
+    document.getElementById('employeeId').textContent = empId;
   </script>
 </body>
 </html>
