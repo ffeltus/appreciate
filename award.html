@@ -34,9 +34,14 @@
     .main-content {
       padding: 2rem;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       min-height: calc(100vh - 70px);
+    }
+    .preview-header {
+      font-size: 1.3rem;
+      color: #333;
+      margin-bottom: 1.5rem;
     }
     .card {
       background: #111;
@@ -74,6 +79,24 @@
       margin-top: 0.5rem;
       color: #999;
     }
+    .button-bar {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .button-bar button {
+      background-color: #0077c8;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .button-bar button:hover {
+      background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
@@ -88,6 +111,7 @@
   </div>
 
   <div class="main-content">
+    <div class="preview-header">Preview Appreciation Award for <span id="employeeNamePreview">[Employee]</span></div>
     <div class="card">
       <img src="velocorebikes.png" alt="Velocore Logo" class="logo" />
       <h1>Congratulations <span id="employeeName">[Employee]</span>! ✨</h1>
@@ -97,6 +121,9 @@
       <p>Keep up the great work!</p>
       <p class="company">Presented by Velocore</p>
     </div>
+    <div class="button-bar">
+      <button onclick="sendAward()">Send Award</button>
+    </div>
   </div>
 
   <script>
@@ -104,7 +131,12 @@
     const name = params.get('name') || 'Team Member';
     const empId = params.get('id') || '000000';
     document.getElementById('employeeName').textContent = name;
+    document.getElementById('employeeNamePreview').textContent = name;
     document.getElementById('employeeId').textContent = empId;
+
+    function sendAward() {
+      alert(`Award has been sent to ${name} (Employee ID: ${empId})`);
+    }
   </script>
 </body>
 </html>
