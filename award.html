@@ -3,17 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Velocore Appreciation Award</title>
+  <title>SuccessFactors | Appreciation Award</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #000;
       margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f8;
+    }
+    .navbar {
+      background-color: #0077c8;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .navbar .menu {
+      display: flex;
+      gap: 2rem;
+    }
+    .navbar .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .main-content {
       padding: 2rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: calc(100vh - 70px);
     }
     .card {
       background: #111;
@@ -24,15 +47,17 @@
       text-align: center;
       color: #A6CE39;
     }
-    .logo {
+    .card .logo {
       width: 150px;
       margin-bottom: 1rem;
     }
     h1 {
       font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
     p {
       font-size: 1.1rem;
+      margin: 0.5rem 0;
     }
     .reward {
       font-size: 1.5rem;
@@ -42,28 +67,39 @@
     .company {
       font-size: 0.9rem;
       margin-top: 2rem;
-      color: #666;
+      color: #888;
     }
     .emp-id {
       font-size: 0.95rem;
       margin-top: 0.5rem;
-      color: #888;
+      color: #999;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <img src="velocorebikes.png" alt="Velocore Logo" class="logo" />
-    <h1>Congratulations <span id="employeeName">[Employee]</span>! ✨</h1>
-    <p>You have been recognised with an Appreciate Award for your outstanding sales achievement this quarter.</p>
-    <p class="reward">£ 1,000 Monetary Reward</p>
-    <p class="emp-id">Employee ID: <span id="employeeId">[ID]</span></p>
-    <p>Keep up the great work!</p>
-    <p class="company">Presented by Velocore</p>
+  <div class="navbar">
+    <div class="logo">SAP SuccessFactors</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">My Team</a>
+      <a href="#">Performance</a>
+      <a href="#">Rewards</a>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="card">
+      <img src="velocorebikes.png" alt="Velocore Logo" class="logo" />
+      <h1>Congratulations <span id="employeeName">[Employee]</span>! ✨</h1>
+      <p>You have been recognised with an Appreciate Award for your outstanding sales achievement this quarter.</p>
+      <p class="reward">£ 1,000 Monetary Reward</p>
+      <p class="emp-id">Employee ID: <span id="employeeId">[ID]</span></p>
+      <p>Keep up the great work!</p>
+      <p class="company">Presented by Velocore</p>
+    </div>
   </div>
 
   <script>
-    // Get 'name' and 'id' from query string
     const params = new URLSearchParams(window.location.search);
     const name = params.get('name') || 'Team Member';
     const empId = params.get('id') || '000000';
